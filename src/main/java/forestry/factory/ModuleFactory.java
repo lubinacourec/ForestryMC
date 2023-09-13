@@ -263,7 +263,7 @@ public class ModuleFactory extends BlankForestryModule {
 
 		ItemElectronTube electronTube = coreItems.tubes;
 
-		FluidStack liquidGlass = Fluids.GLASS.getFluid(500);
+		FluidStack liquidGlass = Fluids.GLASS.getFluid(72);
 		if (liquidGlass != null) {
 			RecipeManagers.fabricatorManager.addRecipe(ItemStack.EMPTY, liquidGlass, electronTube.get(EnumElectronTube.COPPER, 4), new Object[]{
 				" X ",
@@ -354,20 +354,20 @@ public class ModuleFactory extends BlankForestryModule {
 		String[] dyes = {"dyeBlack", "dyeRed", "dyeGreen", "dyeBrown", "dyeBlue", "dyePurple", "dyeCyan", "dyeLightGray", "dyeGray", "dyePink", "dyeLime",
 			"dyeYellow", "dyeLightBlue", "dyeMagenta", "dyeOrange", "dyeWhite"};
 
-		FluidStack liquidGlassBucket = Fluids.GLASS.getFluid(Fluid.BUCKET_VOLUME);
-		FluidStack liquidGlassX4 = Fluids.GLASS.getFluid(Fluid.BUCKET_VOLUME * 4);
+		FluidStack liquidGlassBlock = Fluids.GLASS.getFluid(144);
+		FluidStack liquidGlassX4 = Fluids.GLASS.getFluid(576);
 
 		if (ModuleHelper.isEnabled(ForestryModuleUids.APICULTURE)) {
 			ItemRegistryApiculture beeItems = ModuleApiculture.getItems();
 
-			if (liquidGlassBucket != null && liquidGlassX4 != null) {
+			if (liquidGlassBlock != null && liquidGlassX4 != null) {
 				for (int i = 0; i < 16; i++) {
-					RecipeManagers.fabricatorManager.addRecipe(beeItems.waxCast.getWildcard(), liquidGlassBucket, new ItemStack(Blocks.STAINED_GLASS, 4, 15 - i), new Object[]{
+					RecipeManagers.fabricatorManager.addRecipe(beeItems.waxCast.getWildcard(), liquidGlassX4, new ItemStack(Blocks.STAINED_GLASS, 4, 15 - i), new Object[]{
 						"#", "X",
 						'#', dyes[i],
 						'X', beeItems.propolis.getWildcard()});
 				}
-				RecipeManagers.fabricatorManager.addRecipe(beeItems.waxCast.getWildcard(), liquidGlassX4, new ItemStack(Blocks.GLASS, 1, 0), new Object[]{
+				RecipeManagers.fabricatorManager.addRecipe(beeItems.waxCast.getWildcard(), liquidGlassBlock, new ItemStack(Blocks.GLASS, 1, 0), new Object[]{
 					"X",
 					'X', beeItems.propolis.getWildcard()});
 			}
@@ -429,15 +429,15 @@ public class ModuleFactory extends BlankForestryModule {
 		RecipeUtil.addFermenterRecipes(new ItemStack(Blocks.RED_MUSHROOM), ForestryAPI.activeMode.getIntegerSetting("fermenter.yield.mushroom"), Fluids.BIOMASS);
 
 		// FABRICATOR
-		FluidStack liquidGlass375 = Fluids.GLASS.getFluid(375);
-		if (liquidGlass375 != null && liquidGlassBucket != null && liquidGlassX4 != null) {
-			RecipeManagers.fabricatorSmeltingManager.addSmelting(new ItemStack(Blocks.GLASS), liquidGlassBucket, 1000);
-			RecipeManagers.fabricatorSmeltingManager.addSmelting(new ItemStack(Blocks.GLASS_PANE), liquidGlass375, 1000);
-			RecipeManagers.fabricatorSmeltingManager.addSmelting(new ItemStack(Blocks.SAND), liquidGlassBucket, 3000);
-			RecipeManagers.fabricatorSmeltingManager.addSmelting(new ItemStack(Blocks.SAND, 1, 1), liquidGlassBucket, 3000);
-			RecipeManagers.fabricatorSmeltingManager.addSmelting(new ItemStack(Blocks.SANDSTONE), liquidGlassX4, 4800);
-			RecipeManagers.fabricatorSmeltingManager.addSmelting(new ItemStack(Blocks.SANDSTONE, 1, 1), liquidGlassX4, 4800);
-			RecipeManagers.fabricatorSmeltingManager.addSmelting(new ItemStack(Blocks.SANDSTONE, 1, 2), liquidGlassX4, 4800);
+		FluidStack liquidGlassPane = Fluids.GLASS.getFluid(54);
+		if (liquidGlassPane != null && liquidGlassBlock != null && liquidGlassX4 != null) {
+			RecipeManagers.fabricatorSmeltingManager.addSmelting(new ItemStack(Blocks.GLASS), liquidGlassBlock, 1000);
+			RecipeManagers.fabricatorSmeltingManager.addSmelting(new ItemStack(Blocks.GLASS_PANE), liquidGlassPane, 1000);
+		//	RecipeManagers.fabricatorSmeltingManager.addSmelting(new ItemStack(Blocks.SAND), liquidGlassBlock, 3000);
+		//	RecipeManagers.fabricatorSmeltingManager.addSmelting(new ItemStack(Blocks.SAND, 1, 1), liquidGlassBlock, 3000);
+		//	RecipeManagers.fabricatorSmeltingManager.addSmelting(new ItemStack(Blocks.SANDSTONE), liquidGlassX4, 4800);
+		//	RecipeManagers.fabricatorSmeltingManager.addSmelting(new ItemStack(Blocks.SANDSTONE, 1, 1), liquidGlassX4, 4800);
+		//	RecipeManagers.fabricatorSmeltingManager.addSmelting(new ItemStack(Blocks.SANDSTONE, 1, 2), liquidGlassX4, 4800);
 		}
 		// / CARPENTER
 		RecipeManagers.carpenterManager.addRecipe(50, Fluids.SEED_OIL.getFluid(250), ItemStack.EMPTY, coreItems.impregnatedCasing.getItemStack(),

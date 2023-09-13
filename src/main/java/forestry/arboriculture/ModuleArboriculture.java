@@ -412,7 +412,7 @@ public class ModuleArboriculture extends BlankForestryModule {
 			if (ModuleHelper.allEnabled(ForestryModuleUids.FACTORY, ForestryModuleUids.APICULTURE)) {
 				logs.setCount(1);
 				fireproofLogs.setCount(1);
-				FluidStack liquidGlass = Fluids.GLASS.getFluid(500);
+				FluidStack liquidGlass = Fluids.GLASS.getFluid(72);
 				if (liquidGlass != null) {
 					RecipeManagers.fabricatorManager.addRecipe(ItemStack.EMPTY, liquidGlass, fireproofLogs.copy(), new Object[]{
 						" # ",
