@@ -57,6 +57,9 @@ repositories {
 	maven {
 		url = 'https://mod-buildcraft.com/maven'
 	}
+	maven {
+		url = 'https://modmaven.dev/'
+	}
 }
 
 dependencies {
