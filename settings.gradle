@@ -1,0 +1,21 @@
+pluginManagement {
+    repositories {
+        exclusiveContent {
+            forRepository {
+                maven {
+                    name = "GTNH Maven"
+                    setUrl("https://nexus.gtnewhorizons.com/repository/public/")
+                }
+            }
+            filter {
+                includeGroup("com.gtnewhorizons")
+                includeGroup("com.gtnewhorizons.retrofuturagradle")
+                includeGroup("com.gtnewhorizons.rfg-javac-plugin")
+            }
+        }
+        gradlePluginPortal()
+        maven { url = "https://files.minecraftforge.net/maven" }
+    }
+}
+
+rootProject.name = rootProject.projectDir.name
